@@ -24,3 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
   
+    // --- Login Form ---
+    if (loginForm) {
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Username TIDAK DIPAKAI
+            const password = passwordInput.value.trim();
+
+            // Hanya cek passwordnya saja
+            if (password === commonPassword) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Berhasil',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href = 'mediaPbl.html';
+                });
+            } else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'USERNAME atau PASSWORD salah',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Coba Lagi',
+                    confirmButtonColor: '#dc3545',
+                    allowOutsideClick: false,
+                    allowEscapeKey: true
+                });
+            }
+        });
+    }
+});
+
