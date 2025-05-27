@@ -149,3 +149,150 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+
+        // Firebase Pertama
+        const firebaseConfigMateri = {
+            apiKey: "AIzaSyDWS-yRGyvLClGWiBeq_Z_BcZ-kBgHll8M",
+            authDomain: "materiprojek-70911.firebaseapp.com",
+            databaseURL: "https://materiprojek-70911-default-rtdb.firebaseio.com",
+            projectId: "materiprojek-70911",
+            storageBucket: "materiprojek-70911.firebasestorage.app",
+            messagingSenderId: "755242949891",
+            appId: "1:755242949891:web:2bbde5a922b54cfa0f9d36",
+            measurementId: "G-137P86T9LE"
+        };
+
+        // Firebase Kedua
+        const firebaseConfigTentang = {
+            apiKey: "AIzaSyAVDh4dG81_JlmkMmIztd4m9gRaO-msMYc",
+            authDomain: "tentang-web.firebaseapp.com",
+            databaseURL: "https://tentang-web-default-rtdb.firebaseio.com",
+            projectId: "tentang-web",
+            storageBucket: "tentang-web.firebasestorage.app",
+            messagingSenderId: "262389729779",
+            appId: "1:262389729779:web:3e1ea6a3d725d764ea6a86"
+        };
+
+        // Materi
+        const appMateri = initializeApp(firebaseConfigMateri, "materiApp");
+        const analytics = getAnalytics(appMateri);
+        const databaseMateri = getDatabase(appMateri);
+
+        // Tentang
+        const appTentang = initializeApp(firebaseConfigTentang, "tentangApp");
+        const databaseTentang = getDatabase(appTentang);
+
+        const materiRef = ref(databaseMateri, 'materi_sistem_pernapasan');
+        const materiContentDiv = document.getElementById('materi-content-from-firebase');
+        
+        let materiDetailDiv = document.getElementById('materi-detail-page');
+        if (!materiDetailDiv) {
+            materiDetailDiv = document.createElement('div');
+            materiDetailDiv.id = 'materi-detail-page';
+            materiDetailDiv.className = 'materi-detail-page d-none';
+            materiContentDiv.parentNode.appendChild(materiDetailDiv);
+        }
+
+        onValue(materiRef, (snapshot) => {
+            const materiData = snapshot.val();
+
+            if (materiData && materiData.subbab && Array.isArray(materiData.subbab)) {
+                let materiHtml = '';
+                if (materiData.judul) {
+                    materiHtml += `<h2 class="materi-main-title text-center mb-4">${materiData.judul}</h2>`;
+                }
+                materiHtml += `<div class="materi-cards-container">`;
+
+                const gambarStatis = [
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvinPgqTOOR4Y2UXvL6YUEwk4YbMGPjG6G-w&s",
+                    "https://i.pinimg.com/736x/1e/b1/71/1eb171ef981db3f799b2839ea2a862c4.jpg",
+                    "https://png.pngtree.com/png-clipart/20190613/original/pngtree-number-3-logo-icon-template-png-image_3565204.jpg"
+                ];
+
+                materiData.subbab.forEach((subbab, idx) => {
+                    let preview = "";
+                    if (subbab.isi && Array.isArray(subbab.isi) && subbab.isi[0]) {
+                        preview = subbab.isi[0].isi_sub ? subbab.isi[0].isi_sub.slice(0, 90) + "..." : "";
+                    }
+
+                    let gambar = gambarStatis[idx] || "https://via.placeholder.com/150";
+
+                    materiHtml += `
+                    <div class="materi-wrapper">
+                        <div class="materi-image">
+                            <img src="${gambar}" alt="Gambar ${subbab.judul}">
+                        </div>
+                        <div class="materi-content">
+                            <h3 class="materi-title">${subbab.judul}</h3>
+                            <button class="btn-detail" data-idx="${idx}">Lihat Detail</button>
+                        </div>
+                    </div>
+                `;
+                });
+
+                materiHtml += `</div>`;
+                materiContentDiv.innerHTML = materiHtml;
+                materiContentDiv.classList.remove('d-none');
+                materiDetailDiv.classList.add('d-none');
+
+                // Tombol Lihat Detail
+                document.querySelectorAll('.btn-detail').forEach(btn => {
+                    btn.onclick = () => {
+                        const idx = btn.getAttribute('data-idx');
+                        showMateriDetail(idx, materiData);
+                    };
+                });
+
+                // Menampilkan detail materi
+                function showMateriDetail(idx, materiData) {
+                    const subbab = materiData.subbab[idx];
+                    let detailHtml = `<button class="btn-back-materi">&larr; Kembali ke Daftar Materi</button>`;
+                    detailHtml += `<h2>${subbab.judul}</h2>`;
+                    if (subbab.isi && Array.isArray(subbab.isi)) {
+                        subbab.isi.forEach(item => {
+                            if (item.judul_sub) detailHtml += `<h4>${item.judul_sub}</h4>`;
+                            if (item.isi_sub) detailHtml += `<p>${item.isi_sub}</p>`;
+                        });
+                    }
+                    materiDetailDiv.innerHTML = detailHtml;
+                    materiContentDiv.classList.add('d-none');
+                    materiDetailDiv.classList.remove('d-none');
+
+                    // Tombol kembali ke daftar
+                    materiDetailDiv.querySelector('.btn-back-materi').onclick = () => {
+                        materiDetailDiv.classList.add('d-none');
+                        materiContentDiv.classList.remove('d-none');
+                        window.scrollTo({ top: materiContentDiv.offsetTop - 30, behavior: 'smooth' });
+                    };
+                }
+
+            } else {
+                materiContentDiv.innerHTML = "<p>Konten materi tidak ditemukan di database atau kosong.</p>";
+            }
+        }, (error) => {
+            console.error("Error membaca data 'materi':", error);
+            materiContentDiv.innerHTML = "<p>Terjadi kesalahan saat memuat materi. Periksa konsol browser untuk detail.</p>";
+        });
+
+        const tentangRef = ref(databaseTentang, 'tentang');
+        const tentangContentDiv = document.getElementById('tentang-content-from-firebase');
+
+        onValue(tentangRef, (snapshot) => {
+            const tentangText = snapshot.val();
+            if (tentangText) {
+                tentangContentDiv.innerHTML = tentangText;
+            } else {
+                tentangContentDiv.innerHTML = "<p>Konten 'Tentang' tidak ditemukan di database atau kosong.</p>";
+            }
+        }, (error) => {
+            console.error("Error membaca data 'tentang':", error);
+            tentangContentDiv.innerHTML = "<p>Terjadi kesalahan saat memuat konten.</p>";
+        });
+    </script>
+</body>
+</html>
