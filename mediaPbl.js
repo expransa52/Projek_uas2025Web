@@ -89,7 +89,7 @@ function showPage(page) {
         document.getElementById('materi-page').classList.remove('d-none');
     } else if (page === 'kuis') {
         document.title = "Media Interaktif Sistem Pernapasan pada Manusia - Kuis";
-        window.location.href = "kuisPbl.html";
+        window.location.href = "kuismpb.html";
         document.getElementById('kuis-page').classList.remove('d-none');
     } else if (page === 'video') {
         document.title = "Media Interaktif Sistem Pernapasan pada Manusia - Video";
