@@ -141,3 +141,34 @@ function logout() {
         }
     });
 }
+
+// Responsive: auto-hide sidebar on mobile
+window.addEventListener('resize', function () {
+    if (window.innerWidth <= 600) sidebar.classList.add('hide');
+    else sidebar.classList.remove('hide');
+});
+if (window.innerWidth <= 600) sidebar.classList.add('hide');
+
+// Tombol keluar dari Kuis
+function keluar() {
+    Swal.fire({
+        title: 'Keluar Dari Kuis ?',
+        icon: 'question',
+        showCancelButton: true,
+        cancelButtonText: 'Tidak',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Keluar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Berhasil Keluar Dari Kuis!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.href = "mediaPbl.html";
+            });
+        }
+    });
+}
