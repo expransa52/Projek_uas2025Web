@@ -129,3 +129,94 @@ body {
     padding-bottom: 80px;
     padding-top: 40px;
 }
+
+.pixel-title {
+    font-size: 1.7rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffe066;
+    text-shadow: 2px 2px #222831, 4px 4px #f7cac9;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.pixel-subtitle {
+    font-size: 0.9rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px #222831;
+    letter-spacing: 1px;
+}
+
+.pixel-character {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+    margin-top: 10px;
+}
+
+.pixel-character img {
+    width: 300px;
+    height: 300px;
+    image-rendering: pixelated;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.10);
+    padding: 8px 14px 0 14px;
+    border: 4px solid #ffe066;
+}
+
+.pixel-menu-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.pixel-btn {
+    width: 230px;
+    height: 54px;
+    font-size: 1rem;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    border: 4px solid #fff176;
+    border-radius: 18px;
+    margin: 12px;
+    background: linear-gradient(90deg, #ff7eb9 70%, #ffe066 100%);
+    color: #222831;
+    text-shadow: 1px 1px #fff;
+    box-shadow: 0 4px 0 #222831, 0 8px 16px rgba(0, 0, 0, 0.13);
+    transition: transform 0.17s, box-shadow 0.17s, background 0.17s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+}
+
+.pixel-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #222831, 0 4px 8px rgba(0, 0, 0, 0.13);
+    background: linear-gradient(90deg, #ffe066 70%, #ff7eb9 100%);
+}
+
+.pixel-btn i {
+    margin-right: 10px;
+    font-size: 1.3rem;
+}
+
+.pixel-bg-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.25;
+}
