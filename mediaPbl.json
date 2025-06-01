@@ -1,0 +1,127 @@
+{
+  "materi_sistem_pernapasan": {
+    "judul": "Sistem Pernapasan",
+    "subbab": [
+      {
+        "judul": "Sistem Pernapasan pada Hewan",
+        "isi": [
+          {
+            "judul_sub": "Hewan Bersel Satu (Uniseluler)",
+            "isi_sub": "Hewan bersel satu seperti Amoeba, Paramecium, dan Euglena melakukan pertukaran gas secara langsung melalui permukaan tubuhnya tanpa alat pernapasan khusus. Proses ini berjalan dengan difusi, di mana oksigen dari lingkungan berdifusi melewati membran sel ke sitoplasma, lalu digunakan dalam respirasi sel di mitokondria untuk menghasilkan energi. Karbon dioksida sebagai sisa metabolisme akan berdifusi keluar dari sel ke lingkungan. Difusi berlangsung efisien karena organisme ini berukuran sangat kecil dan memiliki rasio luas permukaan terhadap volume yang besar, sehingga kebutuhan oksigen dapat tercukupi tanpa organ khusus. Selain itu, pergerakan sitoplasma (siklosis) membantu distribusi oksigen ke seluruh bagian sel. Hewan uniseluler biasanya hidup di lingkungan berair agar proses difusi gas berjalan optimal. Kondisi lingkungan sangat memengaruhi kelangsungan hidup mereka, misalnya perubahan suhu atau kadar oksigen di air dapat langsung berdampak pada proses pernapasan. Oleh sebab itu, organisme uniseluler sangat sensitif terhadap perubahan lingkungan.",
+            "gambar": "https://biologimediacentre.com/wp-content/uploads/2020/11/FastStoneEditor-13.jpg"
+          },
+          {
+            "judul_sub": "Cacing Tanah (Annelida)",
+            "isi_sub": "Cacing tanah bernapas melalui kulitnya yang tipis dan selalu lembap. Kulit cacing dipenuhi pembuluh kapiler darah yang terletak tepat di bawah permukaan kulit, sehingga oksigen terlarut dalam air dapat berdifusi masuk ke dalam darah dan diedarkan ke seluruh tubuh. Sebaliknya, karbon dioksida dari darah berdifusi keluar melalui kulit. Proses difusi ini sangat bergantung pada kelembapan lingkungan, sehingga cacing tanah harus hidup di tanah yang lembap atau basah. Jika kulitnya kering, pertukaran gas akan terganggu dan cacing bisa mati lemas. Selain itu, struktur tubuh cacing yang memanjang dan tipis juga membantu memperluas permukaan kulit untuk pertukaran gas. Adaptasi ini sangat penting agar cacing dapat bertahan hidup di habitat bawah tanah yang minim cahaya dan udara.",
+            "gambar": "https://projekipas.com/wp-content/uploads/2023/07/Organ-Pernapasan-pada-Cacing.png"
+          },
+          {
+            "judul_sub": "Serangga (Insekta)",
+            "isi_sub": "Serangga memiliki sistem pernapasan trakea yang terdiri dari saluran udara bercabang-cabang ke seluruh tubuh. Udara masuk melalui spirakel (lubang kecil di sisi tubuh), lalu mengalir ke trakea dan trakeolus yang sangat halus hingga mencapai sel-sel tubuh. Oksigen berdifusi dari trakeolus ke sel, sedangkan karbon dioksida dari sel berdifusi ke trakeolus untuk dikeluarkan. Sistem ini memungkinkan oksigen langsung mencapai jaringan tubuh tanpa diangkut oleh darah, sehingga sangat efisien untuk serangga yang aktif. Trakea juga dilengkapi dengan katup untuk mengatur masuk-keluarnya udara dan mencegah kehilangan air secara berlebihan. Pada serangga yang besar atau aktif, pernapasan dibantu dengan gerakan otot tubuh untuk mempercepat aliran udara di dalam trakea. Sistem trakea ini sangat efisien di lingkungan darat, namun membatasi ukuran tubuh serangga.",
+            "gambar": "https://roboguru-forum-cdn.ruangguru.com/8a11c7f4-705b-437f-9953-267c80a89747.jpg?convert=png"
+          },
+          {
+            "judul_sub": "Ikan (Pisces)",
+            "isi_sub": "Ikan bernapas menggunakan insang yang terletak di sisi kepala. Insang terdiri dari filamen insang yang kaya kapiler darah, sehingga oksigen terlarut dalam air berdifusi ke dalam darah, sedangkan karbon dioksida dari darah berdifusi keluar ke air. Air masuk melalui mulut, melewati insang, dan keluar melalui celah insang. Ikan memanfaatkan mekanisme arus lawan (counter-current flow) antara aliran air dan darah di insang untuk memaksimalkan penyerapan oksigen. Beberapa ikan juga memiliki alat tambahan seperti labirin (pada ikan lele) atau gelembung udara untuk membantu pernapasan di lingkungan dengan kadar oksigen rendah. Efisiensi insang sangat penting agar ikan dapat bertahan hidup di air dengan kadar oksigen yang bervariasi. Selain itu, insang juga berfungsi untuk mengeluarkan sisa metabolisme lain seperti amonia.",
+            "gambar": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-upYDc8x3MC7XvMFkbS0LjRETLvAgbWXISNs0idM1B9Ux2gnB2t3GXigkisWNSlHmjcJ8J_G4bHgAgUqaBIgRjQrMuhY6mxwO5f_q89qD1mf1ITR1G1agBdgQOQdT9QUtMeV3EM1YM0I/s1600/Pernapasan+pada+Ikan.JPG"
+          },
+          {
+            "judul_sub": "Katak dan Amfibi",
+            "isi_sub": "Katak dan amfibi lain memiliki tiga alat pernapasan: kulit, selaput rongga mulut, dan paru-paru. Saat berudu, katak bernapas dengan insang seperti ikan. Setelah dewasa, katak bernapas di air terutama melalui kulitnya yang selalu lembap dan tipis, sedangkan di darat menggunakan paru-paru sederhana dan selaput rongga mulut. Proses pernapasan melalui kulit disebut pernapasan kutaneus, sedangkan melalui paru-paru dan mulut disebut pernapasan pulmoner dan buccal. Kulit katak kaya pembuluh darah dan harus tetap lembap agar oksigen dapat berdifusi dengan baik. Adaptasi ini memungkinkan katak hidup di dua lingkungan, yaitu air dan darat. Namun, katak sangat sensitif terhadap polusi dan perubahan lingkungan karena kulitnya yang tipis.",
+            "gambar": "https://asset.kompas.com/crops/f7CUs2ZneftPqTnbqWf55KkyKxY=/0x2:307x207/750x500/data/photo/2020/06/14/5ee5b84e9bc6d.gif"
+          },
+          {
+            "judul_sub": "Reptil",
+            "isi_sub": "Reptil seperti kadal, ular, dan kura-kura bernapas menggunakan paru-paru yang lebih berkembang dibandingkan amfibi. Paru-paru reptil memiliki permukaan dalam yang berlipat-lipat untuk memperluas area pertukaran gas. Udara masuk melalui lubang hidung, melewati trakea, dan masuk ke paru-paru. Pada beberapa spesies, pernapasan dibantu oleh gerakan otot-otot di sekitar tulang rusuk. Reptil tidak dapat bernapas melalui kulit karena kulitnya kering dan bersisik. Paru-paru reptil lebih efisien dalam menyerap oksigen, sehingga reptil mampu hidup di lingkungan darat yang kering dan panas. Beberapa reptil air, seperti kura-kura, juga dapat mengambil oksigen melalui membran khusus di rongga mulut atau kloaka saat menyelam.",
+            "gambar": "https://slideplayer.info/slide/13881207/85/images/13/Respirasi+pada+kadal+%26+buaya.jpg"
+          },
+          {
+            "judul_sub": "Burung (Aves)",
+            "isi_sub": "Burung memiliki sistem pernapasan yang sangat efisien, terdiri dari paru-paru dan kantong udara (pundi-pundi hawa) yang tersebar di seluruh tubuh. Udara masuk melalui lubang hidung, melewati trakea, kemudian sebagian masuk ke paru-paru, dan sebagian ke kantong udara. Saat burung menghirup dan menghembuskan napas, udara segar tetap mengalir satu arah melalui paru-paru, sehingga pertukaran gas berlangsung maksimal. Kantong udara juga membantu burung tetap ringan saat terbang dan menjaga suhu tubuh. Sistem ini memungkinkan burung memenuhi kebutuhan oksigen yang tinggi saat terbang dalam waktu lama. Selain itu, kantong udara berperan dalam mengatur suara dan membantu proses pendinginan tubuh.",
+            "gambar": "https://asset.kompas.com/crops/CxcEDJpMAheP4xO111xtOCdHw6I=/0x0:360x180/780x390/data/photo/2020/06/14/5ee5b5e4bd0b6.jpg"
+          },
+          {
+            "judul_sub": "Mamalia",
+            "isi_sub": "Mamalia bernapas menggunakan paru-paru yang sangat kompleks dan efisien. Udara masuk melalui saluran pernapasan atas (hidung, faring, laring), lalu ke trakea, bronkus, bronkiolus, dan akhirnya ke alveolus, yaitu kantong udara kecil tempat pertukaran gas. Proses pernapasan dibantu oleh otot diafragma dan otot antar tulang rusuk. Oksigen berdifusi dari alveolus ke dalam darah, sedangkan karbon dioksida dari darah berdifusi ke alveolus untuk dikeluarkan. Sistem ini memungkinkan mamalia memenuhi kebutuhan oksigen yang tinggi, terutama pada hewan berdarah panas. Paru-paru mamalia juga dilengkapi dengan mekanisme pertahanan seperti silia dan lendir untuk menyaring partikel asing. Adaptasi ini sangat penting agar mamalia dapat hidup di berbagai habitat, baik darat maupun air (seperti paus dan lumba-lumba).",
+            "gambar": "https://images.tokopedia.net/blog-tokopedia-com/uploads/2020/11/1.-Mamalia.jpg"
+          }
+        ]
+      },
+      {
+        "judul": "Sistem Pernapasan pada Manusia",
+        "isi": [
+          {
+            "judul_sub": "Struktur Organ Pernapasan",
+            "isi_sub": "Sistem pernapasan manusia terdiri dari saluran pernapasan dan organ utama paru-paru. Saluran pernapasan dimulai dari hidung yang berfungsi menyaring, menghangatkan, dan melembapkan udara. Udara kemudian melewati faring, laring yang mengandung pita suara, trakea, bronkus, dan bronkiolus. Paru-paru adalah organ utama yang terdiri dari jutaan alveolus sebagai tempat pertukaran gas. Setiap alveolus dikelilingi oleh kapiler darah yang memungkinkan oksigen masuk ke darah dan karbon dioksida dikeluarkan. Struktur ini sangat efisien untuk pertukaran gas karena permukaan alveolus yang sangat luas dan tipis. Selain itu, dinding saluran pernapasan dilapisi lendir dan silia untuk menangkap debu dan mikroorganisme.",
+            "gambar": "https://asset-2.tstatic.net/newsmaker/foto/bank/images/sistem-pernapasan-pada-manusia-a.jpg"
+          },
+          {
+            "judul_sub": "Mekanisme Pernapasan",
+            "isi_sub": "Pernapasan manusia meliputi dua tahap utama: inspirasi dan ekspirasi. Inspirasi terjadi saat otot diafragma dan otot antar tulang rusuk berkontraksi, memperbesar rongga dada dan mengembang paru-paru sehingga udara masuk. Ekspirasi terjadi saat otot-otot tersebut relaksasi, rongga dada mengecil, paru-paru mengempis, dan udara keluar. Oksigen dari udara berdifusi ke dalam darah kapiler di alveolus, sedangkan karbon dioksida dari darah berdifusi ke alveolus untuk dikeluarkan saat ekspirasi. Proses ini diatur oleh pusat pernapasan di otak yang merespons kadar karbon dioksida dalam darah. Pernapasan dapat dipercepat saat aktivitas fisik meningkat atau saat tubuh kekurangan oksigen.",
+            "gambar": "https://mediaindonesia.gumlet.io/news/2023/08/b1c95a8e634c5e50bd5562b9b0ba9148.png?w=360&dpr=2.6"
+          },
+          {
+            "judul_sub": "Pertukaran Gas di Paru-paru dan Jaringan",
+            "isi_sub": "Pertukaran gas utama terjadi di alveolus paru-paru, di mana oksigen berdifusi ke dalam darah dan karbon dioksida berdifusi keluar ke udara. Darah yang kaya oksigen dialirkan ke seluruh tubuh melalui pembuluh darah. Di jaringan tubuh, oksigen dilepaskan dari darah ke sel-sel untuk proses metabolisme, dan karbon dioksida hasil metabolisme sel masuk ke darah untuk dibawa kembali ke paru-paru. Proses pertukaran ini berlangsung secara difusi karena perbedaan konsentrasi gas di kedua sisi membran.",
+            "gambar": "https://roboguru-forum-cdn.ruangguru.com/6ea95464-07ab-4fb0-9bfc-c5502320321b.PNG"
+          },
+          {
+            "judul_sub": "Fungsi Tambahan Sistem Pernapasan",
+            "isi_sub": "Selain pertukaran gas, sistem pernapasan manusia berperan dalam produksi suara melalui pita suara di laring, pengaturan keseimbangan asam-basa darah dengan mengeluarkan karbon dioksida, serta melindungi tubuh dari partikel asing melalui refleks batuk, bersin, dan produksi lendir yang menangkap debu dan mikroorganisme. Sistem pernapasan juga membantu mengatur suhu dan kelembapan udara yang masuk ke paru-paru."
+    
+          },
+          {
+            "judul_sub": "Jenis Pernapasan pada Manusia",
+            "isi_sub": "Manusia memiliki dua jenis pernapasan, yaitu pernapasan dada dan pernapasan perut. Pernapasan dada melibatkan otot antar tulang rusuk, sedangkan pernapasan perut melibatkan otot diafragma. Kedua jenis pernapasan ini dapat bekerja secara bersamaan untuk memastikan suplai oksigen yang cukup ke seluruh tubuh, terutama saat melakukan aktivitas berat.",
+            "gambar": "https://slideplayer.info/slide/2421465/8/images/3/Macam-macam+pernapasan.jpg"
+          },
+          {
+            "judul_sub": "Faktor yang Mempengaruhi Fungsi Pernapasan",
+            "isi_sub": "Faktor yang memengaruhi sistem pernapasan manusia meliputi usia, kondisi kesehatan, aktivitas fisik, paparan polusi udara, kebiasaan merokok, serta adanya penyakit atau gangguan pada saluran pernapasan. Kondisi lingkungan dan gaya hidup sehat sangat berperan dalam menjaga fungsi pernapasan optimal. Selain itu, stres dan emosi juga dapat memengaruhi irama pernapasan."
+          }
+
+        ]
+      },
+      {
+        "judul": "Gangguan pada Sistem Pernapasan",
+        "isi": [
+          {
+            "judul_sub": "Asma",
+            "isi_sub": "Asma adalah penyakit kronis yang ditandai dengan peradangan dan penyempitan saluran pernapasan, menyebabkan sesak napas, batuk, dan mengi. Serangan asma dapat dipicu oleh alergi, polusi, stres, atau aktivitas fisik. Pada serangan, otot-otot di sekitar saluran napas mengencang, dinding saluran napas membengkak, dan produksi lendir meningkat sehingga aliran udara terhambat. Penanganan asma meliputi penghindaran pemicu, penggunaan inhaler bronkodilator, serta terapi jangka panjang dengan obat antiinflamasi. Asma tidak dapat disembuhkan, namun dapat dikontrol agar penderita tetap dapat beraktivitas normal.",
+            "gambar": "https://www.who.int/images/default-source/departments/ncds/chronic-respiratory-diseases/asthma-feature-story-boy.jpg?sfvrsn=4d9f2bee_20"
+          },
+          {
+            "judul_sub": "Bronkitis",
+            "isi_sub": "Bronkitis adalah peradangan pada bronkus yang menyebabkan batuk berdahak, sesak napas, dan nyeri dada. Bronkitis bisa bersifat akut (jangka pendek) akibat infeksi virus atau bakteri, atau kronis (jangka panjang) akibat iritasi dari asap rokok dan polusi udara. Pada bronkitis kronis, produksi lendir berlebih menyebabkan penyumbatan saluran napas dan sering terjadi pada perokok berat. Pencegahan bronkitis meliputi menghindari asap rokok, menjaga kebersihan lingkungan, dan vaksinasi influenza.",
+            "gambar": "https://img-cdn.medkomtek.com/YHi7EXKN5y64137dONhINUNws6s=/0x0/smart/filters:quality(100):format(webp)/article/aMr6hAc6KkNTuSAGp1rLO/original/088394400_1561458816-Sering-Begadang-Bisa-Picu-Bronkitis-By-Sakurra-Shutterstock.jpg"
+          },
+          {
+            "judul_sub": "Pneumonia",
+            "isi_sub": "Pneumonia adalah infeksi pada paru-paru yang menyebabkan alveolus terisi cairan atau nanah sehingga mengganggu pertukaran gas. Gejala meliputi demam tinggi, batuk berdahak, nyeri dada, dan kesulitan bernapas. Pneumonia dapat disebabkan oleh bakteri, virus, atau jamur, dan lebih sering menyerang anak-anak, lansia, atau orang dengan daya tahan tubuh rendah. Penanganan pneumonia memerlukan pengobatan medis yang tepat, seperti antibiotik untuk infeksi bakteri dan perawatan suportif untuk menjaga fungsi pernapasan.",
+            "gambar": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1617874569/attached_image/pneumonia.jpg"
+          },
+          {
+            "judul_sub": "Tuberkulosis (TBC)",
+            "isi_sub": "TBC adalah penyakit menular yang disebabkan oleh bakteri Mycobacterium tuberculosis, menyerang paru-paru dan menyebabkan batuk berdarah, penurunan berat badan, demam, dan keringat malam. Penularan terjadi melalui droplet udara saat penderita batuk atau bersin. TBC memerlukan pengobatan antibiotik jangka panjang secara teratur agar tidak terjadi resistensi obat. Pencegahan TBC dilakukan dengan vaksinasi BCG, menjaga kebersihan lingkungan, dan deteksi dini pada kelompok berisiko.",
+            "gambar": "https://yki4tbc.org/wp-content/uploads/2021/09/TB-atau-tuberculosis-adalah-penyakit-menular.jpg"
+          },
+          {
+            "judul_sub": "Emfisema",
+            "isi_sub": "Emfisema adalah kerusakan dinding alveolus yang menyebabkan penurunan elastisitas paru-paru sehingga pertukaran gas tidak efektif. Penyakit ini sering terjadi pada perokok berat dan menyebabkan sesak napas, napas pendek, serta kelelahan. Emfisema termasuk dalam kelompok penyakit paru obstruktif kronik (PPOK). Penanganan emfisema meliputi berhenti merokok, terapi oksigen, dan rehabilitasi paru.",
+            "gambar": "https://cdn.britannica.com/04/100104-050-9C3C04EB/Emphysema-walls-alveoli-oxygen-intake-loss-lungs.jpg"
+          },
+          {
+            "judul_sub": "ISPA (Infeksi Saluran Pernapasan Akut)",
+            "isi_sub": "ISPA adalah infeksi saluran pernapasan bagian atas atau bawah yang biasanya disebabkan oleh virus. Gejala termasuk batuk, pilek, demam, dan sakit tenggorokan. ISPA sangat menular terutama pada anak-anak dan lansia. Pencegahan ISPA dilakukan dengan menjaga kebersihan tangan, menghindari kontak dengan penderita, dan imunisasi.",
+            "gambar": "https://primayahospital.b-cdn.net/wp-content/uploads/2023/07/ciri-ispa-pada-anak1.jpg"
+          },
+          {
+            "judul_sub": "Kanker Paru-paru",
+            "isi_sub": "Kanker paru-paru adalah penyakit ganas yang menyerang jaringan paru-paru. Penyebab utama kanker paru-paru adalah kebiasaan merokok, paparan polusi udara, dan zat karsinogenik. Gejala kanker paru-paru meliputi batuk kronis, batuk berdarah, sesak napas, nyeri dada, dan penurunan berat badan. Penanganan kanker paru-paru meliputi pembedahan, kemoterapi, radioterapi, dan terapi target. Pencegahan utama adalah menghindari faktor risiko seperti merokok dan paparan polusi.",
+            "gambar": "https://image-cdn.medkomtek.com/r3zx2KV-wUnvY2Co1ejLRS4zwkg=/673x373/smart/filters:quality(75):strip_icc():format(jpeg)/klikdokter-media-buckets/medias/2277573/original/058841500_1531380910-Kanker-Paru-paru-By-BlueRingMedia-shutterstock.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}
