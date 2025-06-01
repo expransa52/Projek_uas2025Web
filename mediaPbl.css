@@ -87,3 +87,45 @@ body {
 #sidebar.hide~#main-content {
     margin-left: 0;
 }
+
+.topbar {
+    height: 60px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e4ea;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    color: #222831;
+    margin-right: 18px;
+    cursor: pointer;
+}
+
+.topbar-title {
+    font-size: 1.1rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #222831;
+    margin-left: 8px;
+    letter-spacing: 2px;
+}
+
+.beranda-bg {
+    background: linear-gradient(to bottom, #b3e0ff 60%, #f7cac9 100%);
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding-bottom: 80px;
+    padding-top: 40px;
+}
