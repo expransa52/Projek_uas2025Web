@@ -209,9 +209,9 @@
                 materiHtml += `<div class="materi-cards-container">`;
 
                 const gambarStatis = [
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvinPgqTOOR4Y2UXvL6YUEwk4YbMGPjG6G-w&s",
-                    "https://i.pinimg.com/736x/1e/b1/71/1eb171ef981db3f799b2839ea2a862c4.jpg",
-                    "https://png.pngtree.com/png-clipart/20190613/original/pngtree-number-3-logo-icon-template-png-image_3565204.jpg"
+                    "domba-dimateri.jpg",
+                    "Manusia-dimateri.jpg",
+                    "Gangguan.jpg"
                 ];
 
                 materiData.subbab.forEach((subbab, idx) => {
@@ -283,11 +283,63 @@
         const tentangContentDiv = document.getElementById('tentang-content-from-firebase');
 
         onValue(tentangRef, (snapshot) => {
-            const tentangText = snapshot.val();
-            if (tentangText) {
-                tentangContentDiv.innerHTML = tentangText;
+            const tentangTextFromFirebase = snapshot.val();
+
+            const profileHtmlContent = `
+        <section id="profile" class="container mt-5 text-center">
+            <div class="d-flex justify-content-center flex-wrap mb-4" style="gap: 10px;">
+                <img src="Profil-singkat.png" style="width: 550px; height: 300px;" alt="Aisyah">
+            </div>
+            
+            <h2 class="mb-4 giant-text">Profil Singkat</h2>
+            
+            <div class="row row-cols-1 g-4">
+                </div>
+        </section>
+        
+        <div class="container">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Nama: Aisyah Azimah</p>
+                        <p class="card-text">NIM: 2410131220005</p>
+                        <p class="card-text">Tanggal Lahir: 26 Juni 2006</p>
+                        <p class="card-text">E-Mail: aisyahazimah7@gmail.com</p>
+                        <p class="card-text">Tugas: </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Nama: Ekspransa Saputra</p>
+                        <p class="card-text">NIM: 2410131210003</p>
+                        <p class="card-text">Tanggal Lahir: 07 Desember 2005</p>
+                        <p class="card-text">E-Mail: expransasaputra@gmail.com</p>
+                        <p class="card-text">Tugas: </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Nama: Muhammad Bakeri</p>
+                        <p class="card-text">NIM: 2410131310009</p>
+                        <p class="card-text">Tanggal Lahir: 06 Desember 2005</p>
+                        <p class="card-text">E-Mail: mbakeri0612@gmail.com</p>
+                        <p class="card-text">Tugas: </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+            if (tentangTextFromFirebase) {
+                tentangContentDiv.innerHTML = tentangTextFromFirebase + profileHtmlContent;
             } else {
-                tentangContentDiv.innerHTML = "<p>Konten 'Tentang' tidak ditemukan di database atau kosong.</p>";
+                tentangContentDiv.innerHTML = profileHtmlContent;
             }
         }, (error) => {
             console.error("Error membaca data 'tentang':", error);
