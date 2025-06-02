@@ -418,10 +418,26 @@ iframe {
 .giant-text {
     font-size: 12mm;
 }
-
+  
 .card {
     margin-bottom: 2rem;
 }
+  
+.profile-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+  
+.profile-img {
+    max-width: 180px;
+    margin-right: 20px;
+}
+  
+.profile-text p {
+    margin: 4px 0;
+    text-align: left;
+ }
 
 .music-controls {
     display: flex;
