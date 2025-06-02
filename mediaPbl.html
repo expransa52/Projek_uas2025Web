@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <title>Media Interaktif Sistem Pernapasan pada Manusia - Beranda</title>
     <link rel="icon" href="Logo.png">
-    <link rel="stylesheet" href="mediaPbl.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -45,10 +46,23 @@
             <div class="pixel-title">ARE YOU READY?<br>MEDIA INTERAKTIF SISTEM PERNAPASAN</div>
             <div class="pixel-subtitle">Belajar Sistem Pernapasan dengan Cara Menyenangkan!</div>
             <div class="pixel-character">
-                <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/96/000000/external-lung-anatomy-flatart-icons-outline-flatarticons.png"
+                <img src="paru.png"
                     alt="Paru-paru Lucu" />
             </div>
             <div class="container">
+                <div class="music-controls" style="position: absolute; top: 20px; right: 30px; z-index: 10;">
+                    <audio id="audioPlayer">
+                        <source src="Musik untuk projek akhir.mp3" type="audio/mpeg">
+                        Browser tidak mendukung audio.
+                    </audio>
+                    <button class="btn-circle" id="volumeBtn" title="Mute/Unmute">
+                        <i id="volume-icon" class="fas fa-volume-up"></i>
+                    </button>
+                    <button class="btn-circle" id="musicBtn" title="Play/Pause">
+                        <i id="music-icon" class="fas fa-music"></i>
+                    </button>
+                </div>
+
                 <div class="row justify-content-center">
                     <div class="col-12 pixel-menu-row">
                         <button class="pixel-btn" onclick="showPage('materi')"><i
@@ -68,25 +82,7 @@
             </div>
         </div>
 
-        <div id="beranda-page" class="beranda-bg page-section" style="position:relative;">
-
-            <div class="music-controls" style="position: absolute; top: 20px; right: 30px; z-index: 10;">
-                <audio id="audioPlayer">
-                    <source src="Musik untuk projek akhir.mp3" type="audio/mpeg">
-                    Browser tidak mendukung audio.
-                </audio>
-                <button class="btn-circle" id="volumeBtn" title="Mute/Unmute">
-                    <i id="volume-icon" class="fas fa-volume-up"></i>
-                </button>
-                <button class="btn-circle" id="musicBtn" title="Play/Pause">
-                    <i id="music-icon" class="fas fa-music"></i>
-                </button>
-            </div>
-
-        </div>
-
-
-        <div id="materi-page" class="fitur-page page-section d-none">
+        <div id="materi-page" class="fitur-page-materi page-section d-none">
             <div class="fitur-title">Materi Sistem Pernapasan</div>
             <div class="fitur-content" id="materi-content-from-firebase">
                 <p>Memuat materi...</p>
@@ -142,20 +138,19 @@
 
     <div id="tentang-page" class="fitur-page page-section d-none">
         <div class="fitur-title">Tentang</div>
-        <div class="fitur-content" id="tentang-content-from-firebase">
+        <div class="fitur-content gambar-tentang" id="tentang-content-from-firebase">
             <p>Memuat konten...</p>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="mediaPbl.js"></script>
+    <script src="script.js"></script>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
         import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
-        // Firebase Pertama
         const firebaseConfigMateri = {
             apiKey: "AIzaSyDWS-yRGyvLClGWiBeq_Z_BcZ-kBgHll8M",
             authDomain: "materiprojek-70911.firebaseapp.com",
@@ -167,7 +162,6 @@
             measurementId: "G-137P86T9LE"
         };
 
-        // Firebase Kedua
         const firebaseConfigTentang = {
             apiKey: "AIzaSyAVDh4dG81_JlmkMmIztd4m9gRaO-msMYc",
             authDomain: "tentang-web.firebaseapp.com",
@@ -178,17 +172,16 @@
             appId: "1:262389729779:web:3e1ea6a3d725d764ea6a86"
         };
 
-        // Materi
         const appMateri = initializeApp(firebaseConfigMateri, "materiApp");
         const analytics = getAnalytics(appMateri);
         const databaseMateri = getDatabase(appMateri);
 
-        // Tentang
         const appTentang = initializeApp(firebaseConfigTentang, "tentangApp");
         const databaseTentang = getDatabase(appTentang);
 
         const materiRef = ref(databaseMateri, 'materi_sistem_pernapasan');
         const materiContentDiv = document.getElementById('materi-content-from-firebase');
+
         
         let materiDetailDiv = document.getElementById('materi-detail-page');
         if (!materiDetailDiv) {
@@ -225,7 +218,7 @@
                     materiHtml += `
                     <div class="materi-wrapper">
                         <div class="materi-image">
-                            <img src="${gambar}" alt="Gambar ${subbab.judul}">
+                            <img src="${gambar}" alt="Gambar ${subbab.judul}" style="width: 80%; height: 200px;">
                         </div>
                         <div class="materi-content">
                             <h3 class="materi-title">${subbab.judul}</h3>
@@ -239,8 +232,7 @@
                 materiContentDiv.innerHTML = materiHtml;
                 materiContentDiv.classList.remove('d-none');
                 materiDetailDiv.classList.add('d-none');
-
-                // Tombol Lihat Detail
+                
                 document.querySelectorAll('.btn-detail').forEach(btn => {
                     btn.onclick = () => {
                         const idx = btn.getAttribute('data-idx');
@@ -248,7 +240,6 @@
                     };
                 });
 
-                // Menampilkan detail materi
                 function showMateriDetail(idx, materiData) {
                     const subbab = materiData.subbab[idx];
                     let detailHtml = `<button class="btn-back-materi">&larr; Kembali ke Daftar Materi</button>`;
@@ -335,7 +326,6 @@
             </div>
         </div>
     `;
-
             if (tentangTextFromFirebase) {
                 tentangContentDiv.innerHTML = tentangTextFromFirebase + profileHtmlContent;
             } else {
@@ -343,8 +333,12 @@
             }
         }, (error) => {
             console.error("Error membaca data 'tentang':", error);
-            tentangContentDiv.innerHTML = "<p>Terjadi kesalahan saat memuat konten.</p>";
+            tentangContentDiv.innerHTML = "<p>Terjadi kesalahan saat memuat konten. Periksa konsol browser.</p>";
         });
+
     </script>
+
 </body>
+
 </html>
+
