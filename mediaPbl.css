@@ -437,6 +437,7 @@ iframe {
 .profile-text p {
     margin: 4px 0;
     text-align: left;
+    color: #000000;
 }
 
 .music-controls {
@@ -483,6 +484,23 @@ iframe {
 .materi-detail-page h2 {
     color: black;
     font-size: 1.5rem;
+}
+
+.subjudul-dengan-gambar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.gambar-subjudul {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 @media (max-width: 600px) {
