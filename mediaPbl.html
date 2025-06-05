@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body>
@@ -157,7 +156,6 @@
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
         import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
-        // Pastikan mapping gambar ini sesuai dengan data Firebase kamu
         const subjudulGambarMapping = [
             { "judul_sub": "Hewan Bersel Satu (Uniseluler)", "gambar_sub": "sel2.jpg" },
             { "judul_sub": "Cacing Tanah (Annelida)", "gambar_sub": "Cacing.jpg" },
@@ -266,35 +264,38 @@
                 materiContentDiv.classList.remove('d-none');
                 materiDetailDiv.classList.add('d-none');
 
-                // Sembunyikan detail sidebar materi saat kembali ke daftar materi
                 materiSidebarDetail.classList.add('d-none');
 
                 document.querySelectorAll('.btn-detail').forEach(btn => {
                     btn.onclick = () => {
                         const idx = btn.getAttribute('data-idx');
-                        showMateriDetail(idx, materiData);
-                        // Tambahkan kelas 'active' pada link sidebar Materi
+                        showMateriDetail(parseInt(idx), materiData);
                         document.querySelectorAll('#sidebar .nav-link').forEach(l => l.classList.remove('active'));
                         document.querySelector('#sidebar .nav-link[data-page="materi"]').classList.add('active');
                     };
                 });
 
-                // --- REVISI FUNGSI showMateriDetail ---
-                function showMateriDetail(idx, materiData) {
-                    const subbab = materiData.subbab[idx];
+                const mainMaterialCategories = [
+                    { title: "Sistem Pernapasan pada Hewan", idx: 0 },
+                    { title: "Sistem Pernapasan pada Manusia", idx: 1 },
+                    { title: "Gangguan pada Sistem Pernapasan", idx: 2 }
+                ];
+
+                function showMateriDetail(selectedIdx, materiData) {
+                    const subbab = materiData.subbab[selectedIdx];
+                    if (!subbab) {
+                        console.error("Materi dengan indeks ini tidak ditemukan:", selectedIdx);
+                        return;
+                    }
+
                     let detailHtml = `<button class="btn-back-materi pixel-btn" style="margin-bottom: 20px;">← Kembali</button>`;
-                    detailHtml += `<h2>${subbab.judul}</h2>`;
-
-                    // Konten untuk sidebar detail (hanya judul utama subbab)
-                    let sidebarDetailHtml = `<ul>`;
-                    // Tambahkan judul utama materi sebagai item pertama yang bisa di-scroll
-                    sidebarDetailHtml += `<li class="sub-materi-item active-sub" data-main-idx="${idx}" data-scroll-to-id="materi-top"><strong>${subbab.judul}</strong></li>`;
-
+                    detailHtml += `<h2 id="materi-top">${subbab.judul}</h2>`;
 
                     if (subbab.isi && Array.isArray(subbab.isi)) {
                         subbab.isi.forEach((item, subIdx) => {
                             const gambarDetail = gambarMap[item.judul_sub] || 'https://via.placeholder.com/50x50?text=No+Image';
-                            const elementId = `subbab-item-${idx}-${subIdx}`; // ID unik untuk setiap sub-judul
+                            const elementId = `subbab-item-${selectedIdx}-${subIdx}`;
+
                             if (item.judul_sub) {
                                 detailHtml += `
                                 <h4 class="teks" id="${elementId}">${item.judul_sub}</h4>
@@ -302,53 +303,57 @@
                                         <img src="${gambarDetail}" alt="${item.judul_sub}" class="gambar-subjudul">
                                     </div>
                                 `;
-                                // Tambahkan sub-judul ke sidebar detail sebagai link scroll
-                                sidebarDetailHtml += `<li class="sub-materi-item" data-main-idx="${idx}" data-sub-idx="${subIdx}" data-scroll-to-id="${elementId}">${item.judul_sub}</li>`;
                             }
                             if (item.isi_sub) detailHtml += `<p class="teks-sub" style="font-size: 20px";>${item.isi_sub}</p>`;
                         });
                     }
+
+                    let sidebarDetailHtml = `<ul>`;
+                    mainMaterialCategories.forEach(category => {
+                        const actualSubbabTitle = materiData.subbab[category.idx] ? materiData.subbab[category.idx].judul : category.title;
+                        const isActive = (category.idx === selectedIdx) ? 'active-sub' : '';
+                        sidebarDetailHtml += `
+                            <li class="sub-materi-item ${isActive}" data-main-idx="${category.idx}" data-scroll-to-id="materi-top">
+                                ${actualSubbabTitle}
+                            </li>`;
+                    });
                     sidebarDetailHtml += `</ul>`;
 
                     materiDetailDiv.innerHTML = detailHtml;
                     materiContentDiv.classList.add('d-none');
                     materiDetailDiv.classList.remove('d-none');
 
-                    // Perbarui konten sidebar detail
                     materiDetailListDiv.innerHTML = sidebarDetailHtml;
-                    materiSidebarDetail.classList.remove('d-none'); // Tampilkan sidebar detail
+                    materiSidebarDetail.classList.remove('d-none');
 
-                    // Tambahkan event listener untuk item di sidebar detail
                     document.querySelectorAll('.sub-materi-item').forEach(item => {
-                        item.addEventListener('click', function() {
-                            // Hapus kelas 'active-sub' dari semua item dan tambahkan ke yang diklik
+                        item.addEventListener('click', function () {
+                            const newIdx = parseInt(this.getAttribute('data-main-idx'));
+
                             document.querySelectorAll('.sub-materi-item').forEach(subItem => subItem.classList.remove('active-sub'));
                             this.classList.add('active-sub');
 
-                            const scrollToId = this.getAttribute('data-scroll-to-id');
-                            if (scrollToId === 'materi-top') {
-                                window.scrollTo({ top: materiDetailDiv.offsetTop - 100, behavior: 'smooth' });
+                            showMateriDetail(newIdx, materiData);
+
+                            const mainContentElement = document.getElementById('main-content');
+                            if (mainContentElement) {
+                                mainContentElement.scrollTo({ top: materiDetailDiv.offsetTop - 100, behavior: 'smooth' });
                             } else {
-                                const targetElement = document.getElementById(scrollToId);
-                                if (targetElement) {
-                                    window.scrollTo({ top: targetElement.offsetTop - 100, behavior: 'smooth' }); // Offset 100px agar tidak terlalu mepet atas
-                                }
+                                window.scrollTo({ top: materiDetailDiv.offsetTop - 100, behavior: 'smooth' });
                             }
                         });
                     });
 
-                    // Set item pertama sebagai aktif secara default
-                    const firstSubItem = document.querySelector('.sub-materi-item');
-                    if (firstSubItem) {
-                        firstSubItem.classList.add('active-sub');
-                    }
-
-
                     materiDetailDiv.querySelector('.btn-back-materi').onclick = () => {
                         materiDetailDiv.classList.add('d-none');
                         materiContentDiv.classList.remove('d-none');
-                        materiSidebarDetail.classList.add('d-none'); // Sembunyikan kembali detail sidebar
-                        window.scrollTo({ top: materiContentDiv.offsetTop - 30, behavior: 'smooth' });
+                        materiSidebarDetail.classList.add('d-none');
+                        const mainContentElement = document.getElementById('main-content');
+                        if (mainContentElement) {
+                            mainContentElement.scrollTo({ top: materiContentDiv.offsetTop - 30, behavior: 'smooth' });
+                        } else {
+                            window.scrollTo({ top: materiContentDiv.offsetTop - 30, behavior: 'smooth' });
+                        }
                     };
                 }
 
@@ -368,77 +373,77 @@
 
             const profileHtmlContent = `
             <section id="profile" class="container mt-5 text-center">
-        <div class="d-flex justify-content-center flex-wrap mb-4" style="gap: 10px;">
-          <img src="Profil Singkat 1.png" class="img-fluid" style="width: 550px; height: 300px" alt="Profil singkat">
-        </div>
+                <div class="d-flex justify-content-center flex-wrap mb-4" style="gap: 10px;">
+                <img src="Profil Singkat 1.png" class="img-fluid" style="width: 550px; height: 300px" alt="Profil singkat">
+                </div>
 
-        <h2 class="mb-4 giant-text">Profil Singkat</h2>
+                <h2 class="mb-4 giant-text">Profil Singkat</h2>
 
-        <div class="row row-cols-1 g-4">
-          </div>
-      </section>
+                <div class="row row-cols-1 g-4">
+                </div>
+            </section>
 
-      <div class="container">
-        <div class="profile-row">
-          <img src="Aisyah 1.png" class="profile-img" alt="Aisyah">
-          <div class="profile-text">
-            <p>Nama: Aisyah Azimah</p>
-            <p>NIM: 2410131220005</p>
-            <p>Tanggal Lahir: 26 Juni 2006</p>
-            <p>E-Mail: <a href="mailto:aisyahazimah7@gmail.com">aisyahazimah7@gmail.com</a></p>
-            <p>Tugas:<br>
-                1. Membuat logo di bagian tab browser<br>
-2. Membuat gambar profil singkat dan isi profil singkatnya<br>
-3. Menambahkan music di bagian beranda yaitu putar/pouse dan membisukan music.<br>
-4. Menambah css eksternal untuk setiap halaman website.<br>
-5. Menambahkan JS musik<br>
-6. Mencari video pembelajaran.<br>
-7. Menambah JS Beranda, Sidebar, dan Toogle</p>
-          </div>
-        </div>
+            <div class="container">
+                <div class="profile-row">
+                <img src="Aisyah 1.png" class="profile-img" alt="Aisyah">
+                <div class="profile-text">
+                    <p>Nama: Aisyah Azimah</p>
+                    <p>NIM: 2410131220005</p>
+                    <p>Tanggal Lahir: 26 Juni 2006</p>
+                    <p>E-Mail: <a href="mailto:aisyahazimah7@gmail.com">aisyahazimah7@gmail.com</a></p>
+                    <p>Tugas:<br>
+                        1. Membuat logo di bagian tab browser<br>
+                        2. Membuat gambar profil singkat dan isi profil singkatnya<br>
+                        3. Menambahkan music di bagian beranda yaitu putar/pouse dan membisukan music.<br>
+                        4. Menambah css eksternal untuk setiap halaman website.<br>
+                        5. Menambahkan JS musik<br>
+                        6. Mencari video pembelajaran.<br>
+                        7. Menambah JS Beranda, Sidebar, dan Toogle</p>
+                </div>
+                </div>
 
-        <div class="profile-row">
-          <img src="Ekspransa 2.png" class="profile-img" alt="Ekspransa">
-          <div class="profile-text">
-            <p>Nama: Expransa Saputra</p>
-            <p>NIM: 2410131210003</p>
-            <p>Tanggal Lahir: 7 Desember 2005</p>
-            <p>E-Mail: <a href="mailto:expransasaputra@gmail.com">expransasaputra@gmail.com</a></p>
-            <p>Tugas:<br>
-                1. Membuat halaman Beranda, Sidebar, Fitur,
-dan gambar di bagian beranda sama teks berjalan<br>
-2. Membuat halaman materi dari firebase dan gambar judul materinya<br>
-3. Membuat halaman kuis dan kuisnya dari firebase, hasil akhir skor kuis nya dan
-menambahkan timer pengerjaan kuis.<br>
-4. Membuat JS bagian Kuis, Waktu kuis, materi, dan Mengarahkan fitur setiap di klik ke halaman tertentu.<br>
-5. Menambahkan font pixel (Press Start 2P) dari Google Fonts untuk teks menjadi pixel.<br>
-6. Menambahkan CSS Font Awesome untuk ikon-ikon di dalam sidebar, termasuk ikon rumah (Beranda), buku (Materi), tanda tanya (Kuis), play (Video), informasi (Tentang), dan pintu keluar (Keluar).<br>
-7. Menambahkan Bootstrap CSS dan JS.
-</p>
-          </div>
-        </div>
+                <div class="profile-row">
+                <img src="Ekspransa 2.png" class="profile-img" alt="Ekspransa">
+                <div class="profile-text">
+                    <p>Nama: Expransa Saputra</p>
+                    <p>NIM: 2410131210003</p>
+                    <p>Tanggal Lahir: 7 Desember 2005</p>
+                    <p>E-Mail: <a href="mailto:expransasaputra@gmail.com">expransasaputra@gmail.com</a></p>
+                    <p>Tugas:<br>
+                        1. Membuat halaman Beranda, Sidebar, Fitur,
+                        dan gambar di bagian beranda sama teks berjalan<br>
+                        2. Membuat halaman materi dari firebase dan gambar judul materinya<br>
+                        3. Membuat halaman kuis dan kuisnya dari firebase, hasil akhir skor kuis nya dan
+                        menambahkan timer pengerjaan kuis.<br>
+                        4. Membuat JS bagian Kuis, Waktu kuis, materi, dan Mengarahkan fitur setiap di klik ke halaman tertentu.<br>
+                        5. Menambahkan font pixel (Press Start 2P) dari Google Fonts untuk teks menjadi pixel.<br>
+                        6. Menambahkan CSS Font Awesome untuk ikon-ikon di dalam sidebar, termasuk ikon rumah (Beranda), buku (Materi), tanda tanya (Kuis), play (Video), informasi (Tentang), dan pintu keluar (Keluar).<br>
+                        7. Menambahkan Bootstrap CSS dan JS.
+                    </p>
+                </div>
+                </div>
 
-        <div class="profile-row">
-          <img src="Bakeri 1.png" class="profile-img" alt="Bakeri">
-          <div class="profile-text">
-            <p>Nama: Muhammad Bakeri</p>
-            <p>NIM: 2410131310009</p>
-            <p>Tanggal Lahir: 06 Desember 2005</p>
-            <p>E-Mail: <a href="mailto:mbakeri0612@gmail.com">mbakeri0612@gmail.com</a></p>
-            <p>Tugas:<br>
-                1. Membuat Halaman Login<br>
-2. Membuat Pop Up JS costum<br>
-3. Membuat Firebase bagian tentang<br>
-4. Membuat JS untuk login interaktif, Pop Up JS costum,
- dan tombol interaktif ke halaman lain<br>
-5. Membuat JS nama tab browser setiap halaman berbeda-beda.<br>
-6. Menambahkan Liblary JS dari Sweetalert2<br>
-7. Menambahkan Bootstrap CSS dan JS.
-</p>
-          </div>
-        </div>
-      </div>
-`;
+                <div class="profile-row">
+                <img src="Bakeri 1.png" class="profile-img" alt="Bakeri">
+                <div class="profile-text">
+                    <p>Nama: Muhammad Bakeri</p>
+                    <p>NIM: 2410131310009</p>
+                    <p>Tanggal Lahir: 06 Desember 2005</p>
+                    <p>E-Mail: <a href="mailto:mbakeri0612@gmail.com">mbakeri0612@gmail.com</a></p>
+                    <p>Tugas:<br>
+                        1. Membuat Halaman Login<br>
+                        2. Membuat Pop Up JS costum<br>
+                        3. Membuat Firebase bagian tentang<br>
+                        4. Membuat JS untuk login interaktif, Pop Up JS costum,
+                        dan tombol interaktif ke halaman lain<br>
+                        5. Membuat JS nama tab browser setiap halaman berbeda-beda.<br>
+                        6. Menambahkan Liblary JS dari Sweetalert2<br>
+                        7. Menambahkan Bootstrap CSS dan JS.
+                    </p>
+                </div>
+                </div>
+            </div>
+            `;
             if (tentangTextFromFirebase) {
                 tentangContentDiv.innerHTML = tentangTextFromFirebase + profileHtmlContent;
             } else {
