@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
-
+<!--bagian prans-->
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Interaktif Sistem Pernapasan pada Manusia - Beranda</title>
     <link rel="icon" href="Logo.png">
-    <link rel="stylesheet" href="mediaPbl.css">
+    <link rel="stylesheet" href="media_Pbl.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -40,116 +41,104 @@
                 apakah kamu siap belajar hari ini!
             </marquee>
         </div>
-
-        <div id="beranda-page" class="beranda-bg page-section">
-            <div class="pixel-bg-clouds">
-                <svg width="100%" height="100%">
-                    <rect x="30" y="30" width="80" height="20" fill="#fff" />
-                    <rect x="200" y="50" width="100" height="25" fill="#fff" />
-                    <rect x="450" y="20" width="90" height="18" fill="#fff" />
-                    <rect x="700" y="60" width="70" height="15" fill="#fff" />
-                </svg>
-            </div>
-            <div class="pixel-title">ARE YOU READY?<br>MEDIA INTERAKTIF SISTEM PERNAPASAN</div>
-            <div class="pixel-subtitle">Belajar Sistem Pernapasan dengan Cara Menyenangkan!</div>
-            <div class="pixel-character">
-                <img src="paru.png" alt="Paru-paru Lucu" />
-            </div>
-            <div class="container">
-                <div class="music-controls" style="position: absolute; top: 20px; right: 30px; z-index: 10;">
-                    <audio id="audioPlayer">
-                        <source src="Musik untuk projek akhir.mp3" type="audio/mpeg">
-                        Browser tidak mendukung audio.
-                    </audio>
-                    <button class="btn-circle" id="volumeBtn" title="Mute/Unmute">
-                        <i id="volume-icon" class="fas fa-volume-up"></i>
-                    </button>
-                    <button class="btn-circle" id="musicBtn" title="Play/Pause">
-                        <i id="music-icon" class="fas fa-music"></i>
-                    </button>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-12 pixel-menu-row">
-                        <button class="pixel-btn" onclick="showPage('materi')"><i
-                                class="bi bi-journal-bookmark"></i>MATERI</button>
-                        <button class="pixel-btn" onclick="showPage('kuis')"><i
-                                class="bi bi-patch-question"></i>KUIS</button>
-                    </div>
-                    <div class="col-12 pixel-menu-row">
-                        <button class="pixel-btn" onclick="showPage('video')"><i
-                                class="bi bi-play-circle"></i>VIDEO</button>
-                        <button class="pixel-btn" onclick="showPage('tentang')"><i
-                                class="bi bi-info-circle"></i>TENTANG</button>
-                        <button class="pixel-btn" onclick="logout()"><i
-                                class="bi bi-box-arrow-right"></i>KELUAR</button>
-                    </div>
-                </div>
-            </div>
+        <!--bagian aisyah-->
+    </div>
+    <div class="pixel-title">ARE YOU READY?<br>MEDIA INTERAKTIF SISTEM PERNAPASAN</div>
+    <div class="pixel-subtitle">Belajar Sistem Pernapasan dengan Cara Menyenangkan!</div>
+    <div class="pixel-character">
+        <img src="paru.png" alt="Paru-paru Lucu" />
+    </div>
+    <div class="container">
+        <div class="music-controls" style="position: absolute; top: 20px; right: 30px; z-index: 10;">
+            <audio id="audioPlayer">
+                <source src="Musik untuk projek akhir.mp3" type="audio/mpeg">
+                Browser tidak mendukung audio.
+            </audio>
+            <button class="btn-circle" id="volumeBtn" title="Mute/Unmute">
+                <i id="volume-icon" class="fas fa-volume-up"></i>
+            </button>
+            <button class="btn-circle" id="musicBtn" title="Play/Pause">
+                <i id="music-icon" class="fas fa-music"></i>
+            </button>
         </div>
 
-        <div id="materi-page" class="fitur-page-materi page-section d-none">
-            <div class="fitur-title">Materi Sistem Pernapasan</div>
-            <div class="fitur-content" id="materi-content-from-firebase">
-                <p>Memuat materi...</p>
+        <div class="row justify-content-center">
+            <div class="col-12 pixel-menu-row">
+                <button class="pixel-btn" onclick="showPage('materi')"><i
+                        class="bi bi-journal-bookmark"></i>MATERI</button>
+                <button class="pixel-btn" onclick="showPage('kuis')"><i class="bi bi-patch-question"></i>KUIS</button>
             </div>
-        </div>
-
-        <div id="kuis-page" class="fitur-page page-section d-none">
-            <div class="fitur-title">Kuis</div>
-            <div class="fitur-content">
-                <p>Konten Kuis akan ada di sini atau dimuat dari Kuis.html.</p>
-            </div>
-        </div>
-
-        <div id="video-page" class="fitur-page page-section d-none">
-            <div class="fitur-title">Video Pembelajaran</div>
-            <div class="fitur-content video-grid-container">
-                <h4 class="video-section-heading text-capitalize">ada berbagai video pembelajaran untuk di tonton:</h4>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/AKW3Zen8DD4?si=LwwDSztZlHughRO9"
-                    title="Sistem Pernapasan Manusia" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/BN_kF5BYrT4?si=pGTywFVR-sOUzu7p"
-                    title="Sistem Pernapasan pada Manusia" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/s48V8Edn328?si=GXzGGUxQ14Gdz7CQ"
-                    title="Video Materi Pernapasan Manusia" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-in; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/oQPfpHYmkew?si=LPl3VhdaapK3hphC"
-                    title="Organ Pernapasan Manusia" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/U31-lddMz9M?si=yDG2wCQDY8yEgU3f"
-                    title="Proses Pernapasan Manusia" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Y3DuNMBZTAA?si=Snnqos9JmrXrX038"
-                    title="Gangguan Sistem Pernapasan" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+            <div class="col-12 pixel-menu-row">
+                <button class="pixel-btn" onclick="showPage('video')"><i class="bi bi-play-circle"></i>VIDEO</button>
+                <button class="pixel-btn" onclick="showPage('tentang')"><i
+                        class="bi bi-info-circle"></i>TENTANG</button>
+                <button class="pixel-btn" onclick="logout()"><i class="bi bi-box-arrow-right"></i>KELUAR</button>
             </div>
         </div>
     </div>
+    </div>
+    <!--bagian prans-->
+    <div id="materi-page" class="fitur-page-materi page-section d-none">
+        <div class="fitur-title">Materi Sistem Pernapasan</div>
+        <div class="fitur-content" id="materi-content-from-firebase">
+            <p>Memuat materi...</p>
+        </div>
+    </div>
 
+    <div id="kuis-page" class="fitur-page page-section d-none">
+        <div class="fitur-title">Kuis</div>
+        <div class="fitur-content">
+            <p>Konten Kuis akan ada di sini atau dimuat dari Kuis.html.</p>
+        </div>
+    </div>
+    <!--bagian aisyah-->
+    <div id="video-page" class="fitur-page page-section d-none">
+        <div class="fitur-title">Video Pembelajaran</div>
+        <div class="fitur-content video-grid-container">
+            <h4 class="video-section-heading text-capitalize">ada berbagai video pembelajaran untuk di tonton:</h4>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/AKW3Zen8DD4?si=LwwDSztZlHughRO9"
+                title="Sistem Pernapasan Manusia" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BN_kF5BYrT4?si=pGTywFVR-sOUzu7p"
+                title="Sistem Pernapasan pada Manusia" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/s48V8Edn328?si=GXzGGUxQ14Gdz7CQ"
+                title="Video Materi Pernapasan Manusia" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-in; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/oQPfpHYmkew?si=LPl3VhdaapK3hphC"
+                title="Organ Pernapasan Manusia" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/U31-lddMz9M?si=yDG2wCQDY8yEgU3f"
+                title="Proses Pernapasan Manusia" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y3DuNMBZTAA?si=Snnqos9JmrXrX038"
+                title="Gangguan Sistem Pernapasan" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+    <!--bagian bakeri-->
     <div id="tentang-page" class="fitur-page page-section d-none">
         <div class="fitur-title">Tentang</div>
         <div class="fitur-content" id="tentang-content-from-firebase">
             <p>Memuat konten...</p>
         </div>
     </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="mediaPbl.js"></script>
+    <script src="script.js"></script>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
@@ -157,15 +146,15 @@
         import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
         const subjudulGambarMapping = [
-            { "judul_sub": "Hewan Bersel Satu (Uniseluler)", "gambar_sub": "sel2.jpg" },
+            { "judul_sub": "Hewan Bersel Satu (Uniseluler)", "gambar_sub": "sel1.jpeg" },
             { "judul_sub": "Cacing Tanah (Annelida)", "gambar_sub": "Cacing.jpg" },
-            { "judul_sub": "Serangga (Insekta)", "gambar_sub": "Serangga 1.jpg" },
+            { "judul_sub": "Serangga (Insekta)", "gambar_sub": "seranggaa.jpg" },
             { "judul_sub": "Ikan (Pisces)", "gambar_sub": "Ikan.jpg" },
             { "judul_sub": "Katak dan Amfibi", "gambar_sub": "katak.jpg" },
             { "judul_sub": "Reptil", "gambar_sub": "Reptil.jpg" },
-            { "judul_sub": "Burung (Aves)", "gambar_sub": "Burung.jpg" },
-            { "judul_sub": "Mamalia", "gambar_sub": "mamalia.jpg" },
-            { "judul_sub": "Struktur Organ Pernapasan", "gambar_sub": "Strukturorganpernapasan.jpg" },
+            { "judul_sub": "Burung (Aves)", "gambar_sub": "aves.jpg" },
+            { "judul_sub": "Mamalia", "gambar_sub": "mamaliaaa.jpg" },
+            { "judul_sub": "Struktur Organ Pernapasan", "gambar_sub": "strukturorganpernapasan.jpg" },
             { "judul_sub": "Mekanisme Pernapasan", "gambar_sub": "Mekanisme pernapasan.jpg" },
             { "judul_sub": "Pertukaran Gas di Paru-paru dan Jaringan", "gambar_sub": "Pertukaran gas.jpg" },
             { "judul_sub": "Fungsi Tambahan Sistem Pernapasan", "gambar_sub": "Bersin.jpg" },
@@ -195,7 +184,7 @@
             appId: "1:755242949891:web:2bbde5a922b54cfa0f9d36",
             measurementId: "G-137P86T9LE"
         };
-
+//bagian bakeri
         const firebaseConfigTentang = {
             apiKey: "AIzaSyAVDh4dG81_JlmkMmIztd4m9gRaO-msMYc",
             authDomain: "tentang-web.firebaseapp.com",
@@ -205,7 +194,7 @@
             messagingSenderId: "262389729779",
             appId: "1:262389729779:web:3e1ea6a3d725d764ea6a86"
         };
-
+//bagian prans
         const appMateri = initializeApp(firebaseConfigMateri, "materiApp");
         const analytics = getAnalytics(appMateri);
         const databaseMateri = getDatabase(appMateri);
@@ -365,6 +354,7 @@
             materiContentDiv.innerHTML = "<p>Terjadi kesalahan saat memuat materi. Periksa konsol browser untuk detail.</p>";
         });
 
+    //bagian bakeri
         const tentangRef = ref(databaseTentang, 'tentang');
         const tentangContentDiv = document.getElementById('tentang-content-from-firebase');
 
