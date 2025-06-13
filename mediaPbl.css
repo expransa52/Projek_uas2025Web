@@ -7,6 +7,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Sidebar */
 #sidebar {
     position: fixed;
     top: 0;
@@ -78,6 +79,7 @@ body {
     color: #fff;
 }
 
+/* Main content */
 #main-content {
     margin-left: 230px;
     transition: margin-left 0.3s;
@@ -88,6 +90,7 @@ body {
     margin-left: 0;
 }
 
+/* Topbar */
 .topbar {
     height: 60px;
     background: #fff;
@@ -118,6 +121,7 @@ body {
     letter-spacing: 2px;
 }
 
+/* Beranda (Home) Style */
 .beranda-bg {
     background: linear-gradient(to bottom, #b3e0ff 60%, #f7cac9 100%);
     min-height: calc(100vh - 60px);
@@ -129,7 +133,7 @@ body {
     padding-bottom: 80px;
     padding-top: 40px;
 }
-
+/*bagian aisyah*/
 .pixel-title {
     font-size: 1.7rem;
     font-family: 'Press Start 2P', cursive;
@@ -208,18 +212,7 @@ body {
     margin-right: 10px;
     font-size: 1.3rem;
 }
-
-.pixel-bg-clouds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.25;
-}
-
+/*bagian prans*/
 .fitur-page-materi {
     min-height: calc(100vh - 60px);
     display: flex;
@@ -230,6 +223,7 @@ body {
     padding-top: 40px;
 }
 
+/* Halaman fitur lain */
 .fitur-page {
     min-height: calc(100vh - 60px);
     display: flex;
@@ -249,6 +243,7 @@ body {
 }
 
 .fitur-content {
+    background: #fff;
     border-radius: 20px;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
     padding: 32px 24px;
@@ -266,6 +261,7 @@ iframe {
     margin-left: 50px;
 }
 
+/*bagian bakeri*/
 .swal2-popup {
     font-family: 'Press Start 2P', cursive !important;
     border: 4px solid #222831 !important;
@@ -317,6 +313,7 @@ iframe {
     margin-bottom: 10px !important;
 }
 
+/*bagian prans*/
 .pixel-marquee {
     font-family: 'Press Start 2P', cursive !important;
     font-size: 12px;
@@ -431,6 +428,7 @@ iframe {
     color: #000000;
 }
 
+/*bagian Aisyah*/
 .music-controls {
     display: flex;
     gap: 10px;
@@ -455,11 +453,23 @@ iframe {
 .btn-circle:hover {
     background: #574fd6;
 }
-
+/*bagian prans*/
 .pixel-btn i {
     margin-right: 10px;
     font-size: 1.3rem;
 }
+
+.pixel-bg-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.25;
+}
+
 
 .materi-detail-page p {
     color: #000000;
@@ -585,7 +595,7 @@ iframe {
     padding: 0;
     margin: 0;
 }
-
+/*bagian bakeri*/
 @media (max-width: 600px) {
     .pixel-marquee {
         font-size: 10px;
